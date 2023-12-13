@@ -1,1 +1,1 @@
-# QA_Proj_Cypress_LocaWeb
+Projeto de Automação.
