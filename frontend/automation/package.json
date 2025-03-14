@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "automation": "file:",
     "cypress": "^12.9.0"
   },
   "name": "automation",
