@@ -1,20 +1,27 @@
 const { defineConfig } = require("cypress");
 
-module.exports = defineConfig({
-  viewportWidth: 1300,
-  viewportHeight: 800,
-  videos: true,
-  env: {
-    baseUrl: "https://www.locaweb.com.br/registro-de-dominio/",
-  },
-  e2e: {
-    experimentalRunAllSpecs: true,
-    //Aqui ficarão todos os meus teste//
-    specPattern: [
-       "cypress/tests/scenes/01 - Validar acesso a tela de registro de dominio.cy.js",
-       "cypress/tests/scenes/02 - Validar dominio nacional.cy.js",
-       "cypress/tests/scenes/03 - Validar dominio internacional.cy.js",
-       //"cypress/tests/scenes/04 - .cy.js",
-    ],
-  },
+module.exports = defineConfig(
+{
+    viewportWidth: 1300,
+    viewportHeight: 800,
+    video: true,
+    chromeWebSecurity: false,
+    reporter: "mochawesome",
+    reporterOptions: {
+        reportDir: 'cypress/report',
+        overwrite: true,
+        html: true,
+        json: false,
+        timestamp: 'dd-mm-yyyy_HH-MM-ss'
+    },
+    e2e: {
+        defaultCommandTimeout: 9000,
+        experimentalRunAllSpecs: true,
+        hideXHRInCommandLog: true,
+        baseUrl: "https://www.locaweb.com.br/registro-de-dominio/",
+        //Aqui ficarão todos os meus testes:
+        setupNodeEvents(on, config) {
+          // implement node event listeners here
+        },
+    },
 });
